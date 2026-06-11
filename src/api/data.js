@@ -1,7 +1,7 @@
 import * as api from './api.js';
 
-const host = window.API_URL || 'http://localhost:3030';
-api.settings.host = window.API_URL || 'http://localhost:3030';
+const host = import.meta.env.API_URL || 'http://localhost:3030';
+api.settings.host = import.meta.env.API_URL || 'http://localhost:3030';
 
 export const login = api.login;
 export const register = api.register;
