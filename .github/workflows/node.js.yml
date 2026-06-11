@@ -9,7 +9,7 @@ on:
 jobs:
   build-and-test:
 
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
@@ -23,9 +23,12 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Update Playwright to latest
+      run: npm install -D @playwright/test@latest
+
     - name: Install Playwright browsers and Linux deps
       run: npx playwright install --with-deps
-
+      
     - name: run server
       run: npm run server &
 
