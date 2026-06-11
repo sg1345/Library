@@ -22,7 +22,13 @@ jobs:
         
     - name: Install dependencies
       run: npm install
+
+    - name: install playwright dependencies
+      run: npm install -D @playwright/test
       
+    - name: install browsers
+      run: npx playwright install
+
     - name: start server
       run: npm run server &
 
