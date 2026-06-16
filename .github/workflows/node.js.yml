@@ -15,25 +15,22 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       
-    - name: Use Node.js 20
+    - name: Use Node.js 22
       uses: actions/setup-node@v4
       with:
-        node-version: 20
+        node-version: 22
         
     - name: Install dependencies
       run: npm install
-
-    - name: Update Playwright to latest
-      run: npm install -D @playwright/test@latest
-
-    - name: Install Playwright browsers and Linux deps
-      run: npx playwright install --with-deps
       
     - name: run server
       run: npm run server &
 
     - name: start server
       run: npm run start &
+
+    - name: Install Playwright browsers and Linux deps
+      run: npx playwright install
 
     - name: Run tests
       run: npm test
